@@ -21,5 +21,7 @@ Create a makefile for
 Step 1 : Executing `smithy build` to generate `build/smithy/source/openapi/TodoService.openapi.json`
 Step 2 : Executing `spectral lint build/smithy/source/openapi/TodoService.openapi.json` for linting
 
-# Execute makefile
+## Makefile : automate multi-step workflows
+```bash
 make
+```

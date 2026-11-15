@@ -83,3 +83,8 @@ uv run vulture 07-vulture.py
 ```shell
 uv run lint-imports     
 ```
+
+## Makefile : automate multi-step workflows
+```bash
+make
+```
