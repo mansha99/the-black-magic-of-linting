@@ -1,0 +1,2 @@
+The best way to utilize a linter is to integrate it early and automatically into your development workflow rather than treating it as an afterthought.
+A typical linter colour scheme highlight errors, warnings, and info states flagged by code linters, or a colour palette themed around the shade of green-gray known as "lint"

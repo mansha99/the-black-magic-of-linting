@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+code-linting/.venv
+code-linting/.deepeval
+code-linting/.import_linter_cache
+code-linting/.ruff_cache
+
+contract-linting/.venv
+contract-linting/.deepeval
+contract-linting/.import_linter_cache
+contract-linting/.ruff_cache
+
+doc-linting/.venv
+doc-linting/.deepeval
+doc-linting/.import_linter_cache
+doc-linting/.ruff_cache

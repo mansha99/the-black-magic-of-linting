@@ -1,0 +1,67 @@
+# Extend built-in OpenAPI rules (can also use "spectral:asyncapi" or "spectral:arazzo")
+extends:
+  - spectral:oas
+
+# Custom functions (optional, if you write JS functions in a ./functions folder)
+# functionsDir: ./functions
+
+rules:
+  # ----------------------------------------------------------------
+  # 1. OVERRIDING BUILT-IN RULES
+  # ----------------------------------------------------------------
+  # Turn off a built-in rule you don't want
+  info-contact: off
+  oas3-api-servers: off
+  info-contact: off
+
+  # Downgrade a built-in rule from 'warn' to 'hint'
+  operation-description: hint
+
+  # Upgrade a built-in rule to block CI/CD builds
+  operation-operationId: error
+
+  # ----------------------------------------------------------------
+  # 2. CUSTOM GOVERNANCE RULES
+  # ----------------------------------------------------------------
+  # Require every API path to use kebab-case (e.g., /user-profiles)
+  paths-kebab-case:
+    description: API paths must use kebab-case (lowercase and hyphens only).
+    message: "{{property}} is not kebab-case."
+    severity: error
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/([a-z0-9-]+|\{[a-zA-Z0-9_]+\})(/([a-z0-9-]+|\{[a-zA-Z0-9_]+\}))*$'
+
+  no-version-in-path:
+    description: API version should be in the server URL, not in individual paths.
+    message: "Remove version prefix from path {{property}}."
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "^/v[0-9]+"
+
+  # Ensure descriptions end with a period
+  description-punctuation:
+    description: Descriptions should end with a period.
+    message: "{{path}} description does not end with a period."
+    severity: hint
+    given: $..description
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\.$"
+
+  # Prevent version numbers inside the path (e.g., /v1/users)
+  no-version-in-path:
+    description: API version should be in the server URL, not in individual paths.
+    message: "Remove version prefix from path {{property}}."
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "^\/v[0-9]+"

@@ -1,0 +1,18 @@
+{
+    "version": "1.0",
+    "sources": ["models"],
+    "maven": {
+        "dependencies": [
+            "software.amazon.smithy:smithy-openapi:1.74.1",
+            "software.amazon.smithy:smithy-aws-traits:1.74.1",
+            "software.amazon.smithy:smithy-linters:1.74.1"
+        ]
+    },
+    "plugins": {
+        "openapi": {
+            "service": "com.mycompany.todo#TodoService",
+            "protocol": "aws.protocols#restJson1",
+            "version": "3.1.0"
+        }
+    }
+}

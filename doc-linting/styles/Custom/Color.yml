@@ -1,0 +1,15 @@
+# What extension point to use
+extends: substitution
+
+# The message displayed to the user when triggered
+message: Use 'color' instead of 'colour'.
+
+# Severity level: error, warning, or suggestion
+level: warning
+
+# Case-insensitive matching
+ignorecase: true
+
+# The term to swap/flag
+swap:
+  utilize: use
