@@ -21,3 +21,5 @@ doc-linting/.venv
 doc-linting/.deepeval
 doc-linting/.import_linter_cache
 doc-linting/.ruff_cache
+doc-linting/styles/ai-tells
+doc-linting/styles/ai-tells-commits
